@@ -1,0 +1,50 @@
+.app-navbar {
+  height: 64px;
+  background: linear-gradient(
+    180deg,
+    rgba(2, 6, 23, 0.95),
+    rgba(11, 18, 32, 0.95)
+  );
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* BRAND */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-logo {
+  width: 20px;
+  height: 20px;
+  filter: drop-shadow(0 0 6px rgba(59, 130, 246, 0.8));
+}
+
+.brand-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.3px;
+}
+
+/* LINKS */
+.app-navbar .right a {
+  color: #e5e7eb;
+  text-decoration: none;
+  margin-left: 32px;
+  font-weight: 500;
+  font-size: 14px;
+  transition: color 0.25s ease;
+}
+
+.app-navbar .right a:hover {
+  color: #3b82f6;
+}

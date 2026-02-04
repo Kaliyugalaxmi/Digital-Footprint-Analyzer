@@ -3,12 +3,15 @@ import React from "react";
 export default function Navbar() {
   return (
     <nav style={styles.nav}>
-      {/* Logo on the left */}
       <div style={styles.logo}>
-        <span>🟦</span> Digital Footprint Check
+        <img
+          src="/fingerprint.png"
+          alt="Fingerprint Logo"
+          style={styles.logoImage}
+        />
+        <span>Digital Footprint </span>
       </div>
 
-      {/* Section links on the right */}
       <div style={styles.links}>
         <a href="#hero" style={styles.link}>Home</a>
         <a href="#problems" style={styles.link}>Problems</a>
@@ -38,12 +41,17 @@ const styles = {
     fontSize: "18px",
     display: "flex",
     alignItems: "center",
-    gap: "8px"
+    gap: "10px"
+  },
+  logoImage: {
+    width: "26px",
+    height: "26px",
+    objectFit: "contain"
   },
   links: {
     display: "flex",
     gap: "20px",
-    alignItems: "center" // ensures button aligns with links
+    alignItems: "center"
   },
   link: {
     color: "white",

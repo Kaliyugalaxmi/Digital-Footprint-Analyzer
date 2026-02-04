@@ -1,8 +1,8 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 .logo {
@@ -39,4 +39,198 @@
 
 .read-the-docs {
   color: #888;
+}
+.page {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #061a2e, #020b16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e6f1ff;
+  font-family: "Segoe UI", sans-serif;
+}
+
+
+.status {
+  font-size: 12px;
+  color: #1ddcff;
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+.card h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.card h1 span {
+  color: #1ddcff;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #9fb3c8;
+  margin-bottom: 32px;
+}
+
+.field {
+  margin-bottom: 24px;
+}
+
+.field label {
+  font-size: 12px;
+  color: #9fb3c8;
+}
+
+.field input {
+  width: 100%;
+  margin-top: 8px;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  background: #020c1b;
+  color: white;
+}
+
+.field small {
+  font-size: 11px;
+  color: #6b8299;
+}
+
+.advanced {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #1ddcff;
+  margin-bottom: 26px;
+  cursor: pointer;
+}
+
+.start-btn {
+  width: 100%;
+  padding: 16px;
+  border-radius: 14px;
+  background: linear-gradient(90deg, #1ddcff, #00bcd4);
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.privacy {
+  text-align: center;
+  font-size: 12px;
+  color: #7fa3c4;
+}
+/* DeepScan Page */
+.deep-scan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  background: #0b0f1a; /* same dark theme */
+  padding: 2rem;
+}
+
+.deep-scan .card {
+  background: #121826;
+  padding: 3rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  max-width: 500px;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+}
+
+.deep-scan .status {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #4f8cff; /* blue highlight */
+  font-weight: bold;
+}
+
+.deep-scan h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.deep-scan h1 .highlight {
+  color: #4f8cff;
+}
+
+.deep-scan .subtitle {
+  color: #cfd3e0;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+.deep-scan .field {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.deep-scan .field label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+  color: #cfd3e0;
+}
+
+.deep-scan .field input {
+  width: 100%;
+  padding: 0.65rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #2c3141;
+  background: #1b1f2e;
+  color: #fff;
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
+}
+
+.deep-scan .field small {
+  color: #888fa4;
+  font-size: 0.8rem;
+}
+
+.deep-scan .buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.deep-scan .btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.deep-scan .btn.primary {
+  background: #4f8cff;
+  color: #fff;
+}
+
+.deep-scan .btn.primary:hover {
+  background: #3a6cd9;
+}
+
+.deep-scan .btn.advanced {
+  background: transparent;
+  border: 1px solid #4f8cff;
+  color: #4f8cff;
+}
+
+.deep-scan .btn.advanced:hover {
+  background: rgba(79, 140, 255, 0.1);
+}
+
+.deep-scan .privacy {
+  font-size: 0.75rem;
+  color: #888fa4;
+  margin-top: 1rem;
 }

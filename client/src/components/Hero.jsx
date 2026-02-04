@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
 export default function Hero() {
+  const navigate = useNavigate();
+
   return (
     <section style={styles.hero}>
       <span style={styles.badge}>NEW · Digital Exposure Monitoring</span>
@@ -14,14 +18,19 @@ export default function Hero() {
       </p>
 
       <div style={styles.buttons}>
-        <button style={styles.primary}>Start Free Scan</button>
+        <button
+          style={styles.primary}
+          onClick={() => navigate("/scan")}
+        >
+          Start Free Scan
+        </button>
+
         <button style={styles.secondary}>View Demo</button>
       </div>
-
-      
     </section>
   );
 }
+
 
 const styles = {
   hero: {
