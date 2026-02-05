@@ -1,0 +1,90 @@
+.hero {
+  height: calc(100vh - 80px); /* FIXED typo */
+  margin-top: 80px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  padding: 0 24px;
+
+  background: linear-gradient(
+    180deg,
+    #050816 0%,
+    #0b1224 60%,
+    #050816 100%
+  );
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* soft bottom fade to avoid empty feel */
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 140px;
+  background: linear-gradient(
+    to bottom,
+    rgba(5, 8, 22, 0),
+    #050816
+  );
+}
+
+.badge {
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  background: rgba(255, 255, 255, 0.08);
+  color: #cbd5f5;
+  margin-bottom: 24px;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: white;
+  line-height: 1.15;
+}
+
+.hero-title span {
+  color: #4f8cff;
+}
+
+.hero-subtitle {
+  max-width: 620px;
+  margin-top: 20px;
+  font-size: 1.05rem;
+  color: #b8c2f0;
+  line-height: 1.6;
+}
+
+.hero-actions {
+  margin-top: 36px;
+  display: flex;
+  gap: 16px;
+}
+
+.primary {
+  padding: 14px 26px;
+  border-radius: 999px;
+  background: #4f8cff;
+  border: none;
+  color: white;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.secondary {
+  padding: 14px 26px;
+  border-radius: 999px;
+  background: transparent;
+  border: 1px solid #4f8cff;
+  color: #4f8cff;
+  font-size: 0.95rem;
+  cursor: pointer;
+}

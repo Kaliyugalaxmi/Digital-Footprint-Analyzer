@@ -1,16 +1,22 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // import useNavigate
+import { useNavigate } from "react-router-dom";
 import "../App.css";
 
 export default function DeepScan() {
   const [identity, setIdentity] = useState("");
+  const [githubUsername, setGithubUsername] = useState("");
   const navigate = useNavigate();
 
   const handleStartAnalysis = () => {
     if (!identity) return alert("Please enter an email");
 
-    // Navigate to loading page
-    navigate("/loading", { state: { email: identity } });
+    // Navigate to loading page with both email and github username
+    navigate("/loading", { 
+      state: { 
+        email: identity,
+        githubUsername: githubUsername 
+      } 
+    });
   };
 
   return (
@@ -36,6 +42,19 @@ export default function DeepScan() {
           />
           <small>
             Enter your email to check if it has appeared in any data breaches.
+          </small>
+        </div>
+
+        <div className="field">
+          <label>GITHUB USERNAME (OPTIONAL)</label>
+          <input
+            type="text"
+            placeholder="github_username"
+            value={githubUsername}
+            onChange={(e) => setGithubUsername(e.target.value)}
+          />
+          <small>
+            Analyze your GitHub profile for public exposure.
           </small>
         </div>
 
