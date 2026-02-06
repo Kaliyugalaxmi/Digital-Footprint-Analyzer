@@ -1536,3 +1536,61 @@ ul li {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(102, 126, 234, 0.6);
 }
+/*riskkkkkk*/
+/* wrapper */
+.risk-circle-wrapper {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin: auto;
+}
+
+/* svg rotation so progress starts from top */
+.risk-svg {
+  transform: rotate(-90deg);
+}
+
+/* background ring */
+.risk-bg {
+  stroke: #1f2a44;
+}
+
+/* progress ring */
+.risk-progress {
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1.5s ease;
+}
+
+/* colors based on risk */
+.risk-progress.low {
+  stroke: #22c55e;
+}
+
+.risk-progress.medium {
+  stroke: #f59e0b;
+}
+
+.risk-progress.high {
+  stroke: #ef4444;
+}
+
+/* center text */
+.risk-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.risk-number {
+  font-size: 38px;
+  font-weight: bold;
+  display: block;
+}
+
+.risk-sub {
+  font-size: 14px;
+  color: #9aa4bf;
+  letter-spacing: 1px;
+}

@@ -623,16 +623,10 @@ const DeepScanUI = () => {
           <div className="card">
             <h2>Email Breach Results</h2>
             {breaches.length > 0 ? (
-              <>
                 <div className="alert danger">
                   Email found in {breaches.length} breach(es)
                 </div>
-                <ul>
-                  {breaches.map((b, i) => (
-                    <li key={i}>{b}</li>
-                  ))}
-                </ul>
-              </>
+                
             ) : (
               <div className="alert success">✓ No breaches detected</div>
             )}
@@ -676,20 +670,44 @@ const DeepScanUI = () => {
           </div>
 
           {/* RISK SCORE */}
-          <div className="card center">
-            <h2>Overall Risk Score</h2>
-            <div className={`risk-ring ${riskLevel}`}>
-              <span className="risk-score">{riskScore}</span>
-              <span className="risk-total">/100</span>
-            </div>
-            <span className={`risk-label ${riskLevel}`}>
-              {riskLevel === "high"
-                ? "🔴 High Risk"
-                : riskLevel === "medium"
-                ? "🟡 Medium Risk"
-                : "🟢 Low Risk"}
-            </span>
-          </div>
+         <div className="card center">
+           <h2>Overall Risk Score</h2>
+  <svg className="risk-svg" width="180" height="180">
+    <circle
+      className="risk-bg"
+      cx="90"
+      cy="90"
+      r="70"
+      strokeWidth="12"
+      fill="none"
+    />
+    <circle
+      className={`risk-progress ${riskLevel}`}
+      cx="90"
+      cy="90"
+      r="70"
+      strokeWidth="12"
+      fill="none"
+      strokeDasharray={440}
+      strokeDashoffset={440 - (440 * riskScore) / 100}
+    />
+  </svg>
+
+  <div className="risk-text">
+    <span className="risk-number">{riskScore}%</span>
+    <span className="risk-sub">EXPOSED</span>
+  </div>
+<span className={`risk-label ${riskLevel}`}>
+  {riskLevel === "high"
+    ? "🔴 High Risk"
+    : riskLevel === "medium"
+    ? "🟡 Medium Risk"
+    : "🟢 Low Risk"}
+</span>
+
+</div>
+
+
         </div>
 
         {/* SOCIAL MEDIA MAPPING SECTION */}
@@ -781,10 +799,7 @@ const DeepScanUI = () => {
                     <h3 className="action-title">{item.title}</h3>
                     <p className="action-description">{item.desc}</p>
 
-                    {/* Action Button */}
-                    <button className={`action-btn ${item.level}`}>
-                      Take Action →
-                    </button>
+                    
                   </div>
 
                   {/* Progress Indicator */}
@@ -804,37 +819,7 @@ const DeepScanUI = () => {
             </div>
           )}
 
-          {/* Summary Stats */}
-          {recommendations.length > 0 && (
-            <div className="actions-summary">
-              <div className="summary-card">
-                <div className="summary-number">
-                  {recommendations.filter((r) => r.level === "high").length}
-                </div>
-                <div className="summary-label">Critical Issues</div>
-              </div>
-              <div className="summary-card">
-                <div className="summary-number">
-                  {recommendations.filter((r) => r.level === "medium").length}
-                </div>
-                <div className="summary-label">Important Items</div>
-              </div>
-              <div className="summary-card">
-                <div className="summary-number">
-                  {recommendations.filter((r) => r.level === "low").length}
-                </div>
-                <div className="summary-label">Recommendations</div>
-              </div>
-              <div className="summary-card">
-                <div className="summary-number">
-                  {((recommendations.length / (recommendations.length + 5)) *
-                    100).toFixed(0)}
-                  %
-                </div>
-                <div className="summary-label">Completion Rate</div>
-              </div>
-            </div>
-          )}
+         
         </div>
       </div>
     </div>
