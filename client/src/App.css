@@ -1,3 +1,32 @@
+/* ========================= THEME VARIABLES ========================= */
+:root {
+  --navbar-height: 72px;
+  --bg-dark: #050816;
+  --bg-soft: #0f1c2f;
+  --bg-card: #0b1220;
+  --accent-primary: #1e90ff;
+  --accent-light: #4f8cff;
+  --text-primary: #ffffff;
+  --text-secondary: #e5e7eb;
+  --text-muted: #9ca3af;
+  --border-color: rgba(79, 140, 255, 0.1);
+  --success: #22c55e;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+}
+
+/* ========================= GLOBAL RESET ========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
 #root {
   width: 100%;
   min-height: 100vh;
@@ -5,232 +34,436 @@
   padding: 0;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
+  background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-soft) 100%);
+  color: var(--text-primary);
+  overflow-x: hidden;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* ========================= NAVBAR ========================= */
+.app-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: rgba(5, 8, 22, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 1000;
+  padding: 0;
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.app-navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 40px;
+  max-width: 100%;
+  margin: 0 auto;
+  height: var(--navbar-height);
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-.page {
-  min-height: 100vh;
-  background: radial-gradient(circle at top, #061a2e, #020b16);
+.app-logo {
+  font-weight: 700;
+  font-size: 18px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: #e6f1ff;
-  font-family: "Segoe UI", sans-serif;
+  gap: 10px;
+  color: var(--text-primary);
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
 }
 
-
-.status {
-  font-size: 12px;
-  color: #1ddcff;
-  margin-bottom: 12px;
-  display: inline-block;
+.app-logo:hover {
+  opacity: 0.8;
 }
 
-.card h1 {
-  font-size: 32px;
-  margin-bottom: 10px;
+.app-logo-image {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
 }
 
-.card h1 span {
-  color: #1ddcff;
+.app-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
 }
 
-.subtitle {
+.app-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
   font-size: 14px;
-  color: #9fb3c8;
-  margin-bottom: 32px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  position: relative;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
 }
 
+.app-link:hover {
+  color: var(--accent-light);
+}
+
+.app-link.active {
+  color: var(--accent-light);
+}
+
+.app-link::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-light);
+  transition: width 0.3s ease;
+}
+
+.app-link:hover::after,
+.app-link.active::after {
+  width: 100%;
+}
+
+/* ========================= PAGE LAYOUT ========================= */
+.page,
+.deep-scan,
+.landing-page,
+.report-page {
+  width: 100%;
+  min-height: calc(100vh - var(--navbar-height));
+  margin-top: var(--navbar-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.landing-page {
+  padding: 0;
+  align-items: flex-start;
+}
+
+.landing-page > * {
+  width: 100%;
+}
+
+.page,
+.deep-scan {
+  background: linear-gradient(135deg, var(--bg-dark), var(--bg-soft));
+}
+
+/* ========================= BUTTONS ========================= */
+.start-btn,
+.btn {
+  padding: 14px 32px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 10;
+}
+
+.start-btn,
+.btn.primary {
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-light));
+  color: white;
+}
+
+.start-btn:hover,
+.btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(30, 144, 255, 0.3);
+}
+
+.btn.secondary {
+  background: transparent;
+  border: 1px solid var(--accent-light);
+  color: var(--accent-light);
+}
+
+.btn.secondary:hover {
+  background: rgba(79, 140, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ========================= FORM ELEMENTS ========================= */
 .field {
   margin-bottom: 24px;
+  width: 100%;
 }
 
 .field label {
   font-size: 12px;
-  color: #9fb3c8;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
 }
 
-.field input {
+.field input,
+.field textarea {
   width: 100%;
-  margin-top: 8px;
-  padding: 14px;
-  border-radius: 12px;
-  border: none;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.field input:focus,
+.field textarea:focus {
   outline: none;
-  background: #020c1b;
-  color: white;
+  border-color: var(--accent-light);
+  background: rgba(15, 28, 47, 0.8);
+  box-shadow: 0 0 0 3px rgba(79, 140, 255, 0.1);
+}
+
+.field input::placeholder {
+  color: var(--text-muted);
 }
 
 .field small {
   font-size: 11px;
-  color: #6b8299;
+  color: var(--text-muted);
+  display: block;
+  margin-top: 6px;
 }
 
-.advanced {
+/* ========================= CARD STYLES ========================= */
+.card {
+  background: rgba(11, 18, 32, 0.8);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 3rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  max-width: 520px;
   width: 100%;
-  background: none;
-  border: none;
-  color: #1ddcff;
-  margin-bottom: 26px;
-  cursor: pointer;
 }
 
-.start-btn {
-  width: 100%;
-  padding: 16px;
-  border-radius: 14px;
-  background: linear-gradient(90deg, #1ddcff, #00bcd4);
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-  margin-bottom: 20px;
+.report-card {
+  background: rgba(11, 18, 32, 0.6);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
 }
 
+.report-card:hover {
+  border-color: var(--accent-light);
+  background: rgba(11, 18, 32, 0.8);
+}
+
+/* ========================= TEXT STYLES ========================= */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.subtitle {
+  font-size: 16px;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* ========================= BADGES & STATUS ========================= */
+.status {
+  font-size: 12px;
+  color: var(--accent-light);
+  margin-bottom: 12px;
+  display: inline-block;
+  font-weight: 600;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.status-badge.safe {
+  background: rgba(34, 197, 94, 0.15);
+  color: var(--success);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.status-badge.danger {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--danger);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* ========================= PRIVACY TEXT ========================= */
 .privacy {
   text-align: center;
   font-size: 12px;
-  color: #7fa3c4;
-}
-/* DeepScan Page */
-.deep-scan {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 90vh;
-  background: #0b0f1a; /* same dark theme */
-  padding: 2rem;
+  color: var(--text-muted);
+  margin-top: 1.5rem;
 }
 
-.deep-scan .card {
-  background: #121826;
-  padding: 3rem;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-  max-width: 500px;
-  width: 100%;
-  color: #fff;
-  text-align: center;
+/* ========================= ANIMATIONS ========================= */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.deep-scan .status {
-  display: inline-block;
-  margin-bottom: 1rem;
-  color: #4f8cff; /* blue highlight */
-  font-weight: bold;
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.deep-scan h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 
-.deep-scan h1 .highlight {
-  color: #4f8cff;
+/* ========================= SCROLLBAR ========================= */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-.deep-scan .subtitle {
-  color: #cfd3e0;
-  margin-bottom: 2rem;
-  font-size: 0.95rem;
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
 }
 
-.deep-scan .field {
-  margin-bottom: 1.5rem;
-  text-align: left;
+::-webkit-scrollbar-thumb {
+  background: var(--accent-light);
+  border-radius: 4px;
 }
 
-.deep-scan .field label {
-  display: block;
-  margin-bottom: 0.3rem;
-  font-weight: 600;
-  color: #cfd3e0;
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(79, 140, 255, 0.8);
 }
 
-.deep-scan .field input {
-  width: 100%;
-  padding: 0.65rem 1rem;
-  border-radius: 8px;
-  border: 1px solid #2c3141;
-  background: #1b1f2e;
-  color: #fff;
-  font-size: 0.95rem;
-  margin-bottom: 0.3rem;
+/* ========================= RESPONSIVE ========================= */
+@media (max-width: 768px) {
+  .app-navbar-container {
+    padding: 12px 24px;
+  }
+
+  .app-links {
+    gap: 16px;
+  }
+
+  .app-link {
+    font-size: 13px;
+  }
+
+  .app-logo {
+    font-size: 16px;
+    gap: 8px;
+  }
+
+  .app-logo-image {
+    width: 24px;
+    height: 24px;
+  }
+
+  .page,
+  .deep-scan {
+    padding: 1.5rem;
+  }
+
+  .card {
+    padding: 2rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
 }
 
-.deep-scan .field small {
-  color: #888fa4;
-  font-size: 0.8rem;
-}
+@media (max-width: 640px) {
+  .app-navbar-container {
+    padding: 12px 16px;
+  }
 
-.deep-scan .buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-}
+  .app-links {
+    gap: 12px;
+  }
 
-.deep-scan .btn {
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  border: none;
-  transition: all 0.2s ease;
-}
+  .app-link {
+    font-size: 12px;
+  }
 
-.deep-scan .btn.primary {
-  background: #4f8cff;
-  color: #fff;
-}
+  .app-logo {
+    font-size: 14px;
+    gap: 6px;
+  }
 
-.deep-scan .btn.primary:hover {
-  background: #3a6cd9;
-}
+  .app-logo-image {
+    width: 22px;
+    height: 22px;
+  }
 
-.deep-scan .btn.advanced {
-  background: transparent;
-  border: 1px solid #4f8cff;
-  color: #4f8cff;
-}
+  .page,
+  .deep-scan {
+    padding: 1rem;
+    min-height: calc(100vh - var(--navbar-height));
+  }
 
-.deep-scan .btn.advanced:hover {
-  background: rgba(79, 140, 255, 0.1);
-}
+  .card {
+    padding: 1.5rem;
+    max-width: 100%;
+  }
 
-.deep-scan .privacy {
-  font-size: 0.75rem;
-  color: #888fa4;
-  margin-top: 1rem;
+  h1 {
+    font-size: 1.5rem;
+  }
 }

@@ -1,0 +1,87 @@
+.report-wrapper {
+  background: rgba(10,15,30,0.75);
+  backdrop-filter: blur(18px);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+  color: white;
+  box-shadow: 0 0 60px rgba(0,150,255,0.15);
+}
+
+/* HEADER */
+.report-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.report-header h1 {
+  font-size: 32px;
+  background: linear-gradient(90deg,#00c6ff,#0072ff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.scan-badge {
+  background: rgba(255,255,255,0.08);
+  padding: 12px 18px;
+  border-radius: 12px;
+  text-align: right;
+}
+
+/* GRID */
+.report-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.report-card {
+  background: rgba(255,255,255,0.04);
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.status.safe { color:#22c55e; font-weight:bold; }
+.status.danger { color:#ef4444; font-weight:bold; }
+
+.github-stats {
+  display:flex;
+  justify-content:space-around;
+  margin:15px 0;
+}
+.github-stats span {
+  font-size:28px;
+  font-weight:bold;
+}
+
+.risk-card {
+  text-align:center;
+}
+.risk-circle {
+  width:120px;
+  height:120px;
+  border:10px solid;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:15px auto;
+  font-size:32px;
+  font-weight:bold;
+}
+
+/* RECOMMENDATIONS */
+.recommendations {
+  background: rgba(255,255,255,0.05);
+  padding:25px;
+  border-radius:16px;
+}
+
+.recommendations ul {
+  margin-top:15px;
+  line-height:2;
+}

@@ -1,0 +1,632 @@
+/* ========================= RESET ========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ========================= THEME ========================= */
+:root {
+  --bg-main: #020617;
+  --bg-soft: #020b22;
+  --border: #1e293b;
+  --text-main: #e5e7eb;
+  --text-muted: #94a3b8;
+  --accent: #4f46e5;
+  --success: #22c55e;
+  --danger: #ef4444;
+}
+
+/* ========================= PAGE ========================= */
+.report-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #020617 0%, #020b22 100%);
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--text-main);
+}
+
+/* ========================= NAVBAR ========================= */
+.report-navbar {
+  flex-shrink: 0;
+  padding: 28px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(2, 6, 23, 0.95);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--border);
+  gap: 2rem;
+}
+
+.nav-center {
+  text-align: center;
+  flex: 1;
+}
+
+.nav-title {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #f8fafc;
+  margin: 0;
+}
+
+.nav-subtitle {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin: 8px 0 0 0;
+}
+
+.nav-download-btn {
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.nav-download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(79, 70, 229, 0.35);
+}
+
+.nav-download-btn:active {
+  transform: translateY(0);
+}
+
+/* ========================= CONTENT ========================= */
+.report-content {
+  flex: 1;
+  max-width: 900px;
+  width: 100%;
+  margin: 64px auto 96px;
+  padding: 0 24px;
+}
+
+/* ========================= REPORT CARD ========================= */
+.report-card {
+  background: radial-gradient(
+    120% 120% at 0% 0%,
+    #020b22 0%,
+    #020617 60%
+  );
+  border: 1px solid rgba(30, 41, 59, 0.9);
+  border-radius: 14px;
+  padding: 36px 40px;
+  margin-bottom: 32px;
+  box-shadow: 0 0 0 1px rgba(79, 70, 229, 0.05), 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.report-card:last-child {
+  margin-bottom: 0;
+}
+
+/* Screen headings */
+.report-card-heading {
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #f8fafc;
+  margin: 0 0 20px 0;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+}
+
+.card-content {
+  /* Screen content */
+}
+
+/* ========================= TEXT ========================= */
+.report-card p,
+.report-card li {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+.report-card p:last-child {
+  margin-bottom: 0;
+}
+
+.report-card ul {
+  padding-left: 22px;
+  margin: 0;
+}
+
+.card-description {
+  font-size: 14.5px;
+  color: var(--text-muted);
+  margin-top: 16px;
+  margin-bottom: 0;
+}
+
+/* ========================= INFO FIELDS ========================= */
+.info-field {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.info-field:last-of-type {
+  border-bottom: none;
+  margin-bottom: 16px;
+  padding-bottom: 0;
+}
+
+.field-label {
+  font-weight: 600;
+  color: var(--text-main);
+  min-width: 150px;
+  flex-shrink: 0;
+}
+
+.field-value {
+  color: var(--text-muted);
+  word-break: break-all;
+  flex: 1;
+}
+
+/* ========================= STATUS BADGE ========================= */
+.status-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.safe-badge {
+  background: rgba(34, 197, 94, 0.15);
+  color: #10b981;
+}
+
+.danger-badge {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+/* ========================= BREACH TEXT ========================= */
+.breach-text {
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0 0 1.5rem 0;
+  color: #e5e7eb;
+}
+
+.safe-text {
+  color: #e5e7eb;
+}
+
+.danger-text {
+  color: #e5e7eb;
+}
+
+/* ========================= EXPOSURE GRID ========================= */
+.exposure-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 64px;
+  margin: 28px 0 20px;
+}
+
+.exposure-item {
+  text-align: center;
+}
+
+.exposure-number {
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #f8fafc;
+  margin: 0;
+}
+
+.exposure-label {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin: 8px 0 0 0;
+}
+
+/* ========================= RISK SCORE TEXT DISPLAY ========================= */
+.risk-text-display {
+  display: none;
+}
+
+.risk-assessment-text {
+  font-size: 15px;
+  color: var(--text-main);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.risk-assessment-text strong {
+  color: #4f8cff;
+  font-weight: 600;
+}
+
+.risk-level-indicator {
+  display: none;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.status-low {
+  background: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.status-medium {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.status-high {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* ========================= LISTS ========================= */
+.summary-list,
+.findings-list,
+.recommendations-list,
+.limitations-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.summary-list li,
+.findings-list li,
+.recommendations-list li,
+.limitations-list li {
+  padding-left: 0;
+  position: relative;
+  margin-bottom: 12px;
+  color: #d1d5db;
+  line-height: 1.6;
+}
+
+.summary-list li:last-child,
+.findings-list li:last-child,
+.recommendations-list li:last-child,
+.limitations-list li:last-child {
+  margin-bottom: 0;
+}
+
+.summary-list li:before,
+.findings-list li:before,
+.recommendations-list li:before,
+.limitations-list li:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.summary-list li strong {
+  color: #f8fafc;
+}
+
+/* ========================= NO REPORT ========================= */
+.no-report {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  background: linear-gradient(180deg, #020617 0%, #020b22 100%);
+  color: #e5e7eb;
+}
+
+.no-report h1 {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.no-report p {
+  font-size: 16px;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.no-report button {
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.no-report button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(79, 70, 229, 0.35);
+}
+
+/* ========================= PDF MODE ========================= */
+.pdf-mode {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* Style navbar for PDF */
+.pdf-mode .report-navbar {
+  background: #ffffff !important;
+  border-bottom: 1px solid #e5e7eb !important;
+  padding: 32px 40px !important;
+}
+
+.pdf-mode .nav-title {
+  color: #000000 !important;
+  font-size: 28px;
+}
+
+.pdf-mode .nav-subtitle {
+  color: #6b7280 !important;
+  font-size: 14px;
+}
+
+/* Hide download button in PDF */
+.pdf-mode .nav-download-btn {
+  display: none !important;
+}
+
+/* Style content for PDF */
+.pdf-mode .report-content {
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 40px !important;
+}
+
+/* Remove gradients */
+.pdf-mode .report-card {
+  background: #ffffff !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 24px 0 !important;
+  margin-bottom: 32px !important;
+  page-break-inside: avoid;
+  border-bottom: 1px solid #e5e7eb !important;
+}
+
+.pdf-mode .report-card:last-child {
+  border-bottom: none !important;
+  margin-bottom: 0 !important;
+}
+
+/* Show clean headings */
+.pdf-mode .report-card-heading {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000000 !important;
+  margin-bottom: 16px !important;
+  padding-bottom: 8px !important;
+  border-bottom: 2px solid #2563eb !important;
+}
+
+/* Reset text color for all elements */
+.pdf-mode p,
+.pdf-mode li {
+  color: #1f2937 !important;
+  font-size: 14px;
+}
+
+.pdf-mode .card-description {
+  color: #4b5563 !important;
+  font-size: 13px;
+}
+
+.pdf-mode .field-label {
+  color: #1f2937 !important;
+  font-size: 13px;
+}
+
+.pdf-mode .field-value {
+  color: #4b5563 !important;
+  font-size: 13px;
+}
+
+/* Status badges for PDF */
+.pdf-mode .status-badge {
+  background: #f3f4f6 !important;
+  color: #1f2937 !important;
+  border: 1px solid #e5e7eb;
+}
+
+.pdf-mode .safe-badge {
+  background: #ecfdf5 !important;
+  color: #059669 !important;
+}
+
+.pdf-mode .danger-badge {
+  background: #fef2f2 !important;
+  color: #dc2626 !important;
+}
+
+/* PDF numbers */
+.pdf-mode .exposure-number {
+  color: #000000 !important;
+}
+
+.pdf-mode .exposure-label {
+  color: #4b5563 !important;
+}
+
+/* Risk Score in PDF */
+.pdf-mode .risk-score-big {
+  color: #000000 !important;
+}
+
+.pdf-mode .risk-score-label {
+  color: #4b5563 !important;
+}
+
+.pdf-mode .risk-score-status {
+  color: #1f2937 !important;
+}
+
+.pdf-mode .risk-description {
+  color: #4b5563 !important;
+}
+
+/* List items in PDF */
+.pdf-mode .summary-list li:before,
+.pdf-mode .findings-list li:before,
+.pdf-mode .recommendations-list li:before,
+.pdf-mode .limitations-list li:before {
+  color: #2563eb !important;
+}
+
+.pdf-mode .summary-list li strong {
+  color: #000000 !important;
+}
+
+/* ========================= RESPONSIVE ========================= */
+@media (max-width: 768px) {
+  .report-navbar {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 16px 20px;
+  }
+
+  .nav-center {
+    width: 100%;
+  }
+
+  .nav-title {
+    font-size: 20px;
+  }
+
+  .nav-subtitle {
+    font-size: 12px;
+  }
+
+  .nav-download-btn {
+    width: 100%;
+  }
+
+  .report-content {
+    margin-top: 40px;
+    padding: 0 16px;
+  }
+
+  .report-card {
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .exposure-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .exposure-number {
+    font-size: 2.5rem;
+  }
+
+  .info-field {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .field-label {
+    min-width: auto;
+  }
+
+  .risk-score-big {
+    font-size: 2.5rem;
+  }
+
+  .risk-score-status {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .report-navbar {
+    padding: 12px 16px;
+  }
+
+  .nav-title {
+    font-size: 18px;
+  }
+
+  .nav-subtitle {
+    font-size: 11px;
+  }
+
+  .report-content {
+    margin: 32px auto 64px;
+    padding: 0 16px;
+  }
+
+  .report-card {
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .report-card-heading {
+    font-size: 14px;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .exposure-grid {
+    gap: 1rem;
+  }
+
+  .exposure-number {
+    font-size: 2rem;
+  }
+
+  .exposure-label {
+    font-size: 13px;
+  }
+
+  .risk-score-big {
+    font-size: 2rem;
+  }
+
+  .risk-score-label {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+
+  .risk-score-status {
+    font-size: 1rem;
+  }
+
+  .risk-description {
+    font-size: 13px;
+  }
+}

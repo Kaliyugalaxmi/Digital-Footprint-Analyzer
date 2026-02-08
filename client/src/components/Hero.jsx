@@ -4,7 +4,7 @@ export default function Hero() {
   const navigate = useNavigate();
 
   return (
-    <section style={styles.hero}>
+    <section id="hero" style={styles.hero}>
       <span style={styles.badge}>NEW · Digital Exposure Monitoring</span>
 
       <h1 style={styles.heading}>
@@ -31,11 +31,9 @@ export default function Hero() {
   );
 }
 
-
 const styles = {
   hero: {
     minHeight: "100vh",
-    paddingTop: "120px", // enough for fixed navbar
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -43,7 +41,7 @@ const styles = {
     textAlign: "center",
     paddingLeft: "40px",
     paddingRight: "40px",
-    background: "linear-gradient(135deg, #050816, #0f1c2f)", // subtle gradient
+    background: "linear-gradient(135deg, #050816, #0f1c2f)",
     color: "white",
     position: "relative",
     overflow: "hidden"
@@ -78,7 +76,8 @@ const styles = {
     marginTop: "30px",
     display: "flex",
     gap: "20px",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
+    justifyContent: "center"
   },
   primary: {
     padding: "14px 36px",
@@ -100,18 +99,5 @@ const styles = {
     fontWeight: "600",
     cursor: "pointer",
     transition: "transform 0.2s, background 0.2s"
-  },
-  heroImage: {
-    marginTop: "50px"
-  },
-  image: {
-    width: "220px",
-    maxWidth: "80%",
-    opacity: 0.85,
-    animation: "float 6s ease-in-out infinite"
-  },
-  "@keyframes float": {
-    "0%,100%": { transform: "translateY(0px)" },
-    "50%": { transform: "translateY(-15px)" }
   }
 };

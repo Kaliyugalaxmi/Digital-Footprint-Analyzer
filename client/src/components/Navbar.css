@@ -1,5 +1,5 @@
-/* ========================= APP NAVBAR ========================= */
-.app-navbar {
+/* ========================= LANDING NAVBAR ========================= */
+.landing-navbar {
   position: fixed;
   top: 0;
   left: 0;
@@ -13,7 +13,7 @@
   margin: 0;
 }
 
-.app-navbar-container {
+.landing-navbar-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,7 +23,7 @@
 }
 
 /* ========================= LOGO ========================= */
-.app-logo {
+.landing-logo {
   font-weight: 700;
   font-size: 18px;
   display: flex;
@@ -32,27 +32,22 @@
   color: white;
   text-decoration: none;
   cursor: pointer;
-  transition: opacity 0.3s ease;
 }
 
-.app-logo:hover {
-  opacity: 0.8;
-}
-
-.app-logo-image {
+.landing-logo-image {
   width: 28px;
   height: 28px;
   object-fit: contain;
 }
 
 /* ========================= LINKS ========================= */
-.app-links {
+.landing-links {
   display: flex;
   gap: 32px;
   align-items: center;
 }
 
-.app-link {
+.landing-link {
   color: #e5e7eb;
   text-decoration: none;
   font-weight: 500;
@@ -60,21 +55,13 @@
   cursor: pointer;
   transition: color 0.3s ease;
   position: relative;
-  background: none;
-  border: none;
-  padding: 0;
-  font-family: inherit;
 }
 
-.app-link:hover {
+.landing-link:hover {
   color: #4f8cff;
 }
 
-.app-link.active {
-  color: #4f8cff;
-}
-
-.app-link::after {
+.landing-link::after {
   content: "";
   position: absolute;
   bottom: -4px;
@@ -85,57 +72,86 @@
   transition: width 0.3s ease;
 }
 
-.app-link:hover::after {
+.landing-link:hover::after {
   width: 100%;
 }
 
-.app-link.active::after {
-  width: 100%;
+/* ========================= BUTTON ========================= */
+.landing-button {
+  background: linear-gradient(135deg, #1e90ff, #4f8cff);
+  border: none;
+  padding: 10px 24px;
+  border-radius: 24px;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(30, 144, 255, 0.25);
+}
+
+.landing-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(30, 144, 255, 0.35);
+}
+
+.landing-button:active {
+  transform: translateY(0);
 }
 
 /* ========================= RESPONSIVE ========================= */
 @media (max-width: 768px) {
-  .app-navbar-container {
+  .landing-navbar-container {
     padding: 12px 24px;
   }
 
-  .app-links {
+  .landing-links {
     gap: 16px;
   }
 
-  .app-link {
+  .landing-link {
     font-size: 13px;
   }
 
-  .app-logo-image {
+  .landing-button {
+    padding: 8px 20px;
+    font-size: 13px;
+  }
+
+  .landing-logo-image {
     width: 24px;
     height: 24px;
   }
 
-  .app-logo {
+  .landing-logo {
     font-size: 16px;
   }
 }
 
 @media (max-width: 640px) {
-  .app-navbar-container {
+  .landing-navbar-container {
     padding: 12px 16px;
   }
 
-  .app-links {
+  .landing-links {
     gap: 12px;
   }
 
-  .app-link {
+  .landing-link {
     font-size: 12px;
   }
 
-  .app-logo-image {
+  .landing-button {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+
+  .landing-logo-image {
     width: 22px;
     height: 22px;
   }
 
-  .app-logo {
+  .landing-logo {
     font-size: 14px;
     gap: 6px;
   }

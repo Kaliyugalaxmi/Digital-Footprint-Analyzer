@@ -1,9 +1,9 @@
 export default function Problems() {
   return (
-    <section style={styles.section}>
+    <section id="problems" style={styles.section}>
       <h2 style={styles.heading}>Problems We Solve</h2>
       <p style={styles.subheading}>
-        Common digital risks that often go unnoticed — until it’s too late.
+        Common digital risks that often go unnoticed — until it's too late.
       </p>
 
       <div style={styles.cards}>
@@ -50,7 +50,6 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    
     alignItems: "center",
     background: "#050816",
     color: "white",

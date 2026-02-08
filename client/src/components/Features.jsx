@@ -9,10 +9,10 @@ export default function Features() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.disconnect(); // stop observing once visible
+          observer.disconnect();
         }
       },
-      { threshold: 0.2 } // trigger when 20% visible
+      { threshold: 0.2 }
     );
 
     if (ref.current) observer.observe(ref.current);
@@ -22,6 +22,7 @@ export default function Features() {
 
   return (
     <section
+      id="features"
       ref={ref}
       style={{
         ...styles.section,
@@ -64,26 +65,24 @@ export default function Features() {
     </section>
   );
 }
+
 const styles = {
-section: {
-  minHeight: "100vh",
-  padding: "0 40px",
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
-  textAlign: "center",
-  background: "linear-gradient(135deg, #050816, #0f1c2f)", // gradient added
-  color: "white"
-},
-
-
+  section: {
+    minHeight: "100vh",
+    padding: "0 40px",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center",
+    background: "linear-gradient(135deg, #050816, #0f1c2f)",
+    color: "white"
+  },
   heading: {
     fontSize: "clamp(28px, 5vw, 42px)",
     fontWeight: "700",
     marginBottom: "12px"
   },
-
   subheading: {
     maxWidth: "640px",
     fontSize: "16px",
@@ -91,7 +90,6 @@ section: {
     marginBottom: "50px",
     lineHeight: "1.6"
   },
-
   cards: {
     display: "flex",
     gap: "30px",
